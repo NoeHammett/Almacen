@@ -14,4 +14,5 @@ public interface AlmacenRepository extends CrudRepository<AlmacenModel, Long> {
     @Query("SELECT a from AlmacenModel a where a.id_estatus_almacen=?1")
     public ArrayList<AlmacenModel> fyndByEstatus(Long id_estatus_almacen);
 
+
 }
