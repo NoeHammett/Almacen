@@ -28,8 +28,7 @@ public class UsuarioModel {
 
     public UsuarioModel() {
     }
-
-
+    
     public UsuarioModel(Long id_usuario, String nombre_usuario, String primer_apellido_usuario, String segundo_apellido_usuario, String email_usuario, String nickname_usuario, String password_usuario, String direccion_usuario, Long id_estatus_usuario) {
         this.id_usuario = id_usuario;
         this.nombre_usuario = nombre_usuario;
@@ -41,7 +40,6 @@ public class UsuarioModel {
         this.direccion_usuario = direccion_usuario;
         this.id_estatus_usuario = id_estatus_usuario;
     }
-
 
     public Long getId_usuario() {
         return this.id_usuario;

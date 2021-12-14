@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,5 +34,10 @@ public class UsuarioController {
     @GetMapping("/getUsuarioByEstatus/{id_estatus_usuario}")
     public ArrayList<UsuarioModel> getUsuarioByEstatus(@PathVariable("id_estatus_usuario") Long id_estatus_usuario){
         return usuarioService.getUsuarioEstatus(id_estatus_usuario);   
+    }
+
+    @PutMapping("/updateUsuario/{id_usuario}")
+    public String updateUsuario(@RequestBody UsuarioModel usuario,@PathVariable Long id_usuario){
+        return usuarioService.updateUsuario(usuario, id_usuario);
     }
 }

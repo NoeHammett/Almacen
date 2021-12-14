@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/categoria")
+@RequestMapping(path="api/categoria", produces = "application/json")
 public class CategoriaController {
     @Autowired
     CategoriaService categoriaService;
