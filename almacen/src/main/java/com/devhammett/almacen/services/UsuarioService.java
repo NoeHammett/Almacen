@@ -1,6 +1,7 @@
 package com.devhammett.almacen.services;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -17,8 +18,16 @@ public class UsuarioService {
     UsuarioRepository usuarioRepository;
 
     public String addUsuario(UsuarioModel usuario){
-        usuarioRepository.save(usuario);
-        return "Usuario agregado";
+        Optional<UsuarioModel> usuarioEmail = usuarioRepository.findUsuarioByEmail(usuario.getEmail_usuario());
+        Optional<UsuarioModel> usuarioNickname = usuarioRepository.findUsuarioByNickname(usuario.getNickname_usuario());
+        if(usuarioEmail.isPresent()){
+            throw new IllegalStateException("El Email ya ha sido registrado previamente");
+        }else if(usuarioNickname.isPresent()){
+            throw new IllegalStateException("El Nickname ya ha sido registrado previamente");
+        }else{
+            usuarioRepository.save(usuario);
+            return "Usuario agregado";
+        }    
     }
 
     public UsuarioModel getUsuarioById(Long id_usuario){
@@ -28,6 +37,10 @@ public class UsuarioService {
             return null;
         }
     }
+    public Optional<UsuarioModel> getUsuarioByEmail(String email_usuario){
+        return usuarioRepository.findUsuarioByEmail(email_usuario);
+    }  
+
     
     public ArrayList<UsuarioModel> getUsuarioEstatus(Long id_estatus_usuario){
         try{  

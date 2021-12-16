@@ -1,6 +1,7 @@
 package com.devhammett.almacen.controllers;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import com.devhammett.almacen.models.UsuarioModel;
 import com.devhammett.almacen.services.UsuarioService;
@@ -34,6 +35,11 @@ public class UsuarioController {
     @GetMapping("/getUsuarioByEstatus/{id_estatus_usuario}")
     public ArrayList<UsuarioModel> getUsuarioByEstatus(@PathVariable("id_estatus_usuario") Long id_estatus_usuario){
         return usuarioService.getUsuarioEstatus(id_estatus_usuario);   
+    }
+
+    @GetMapping("/getUsuarioByEmail/{email_usuario}")
+    public Optional<UsuarioModel> getUsuarioByEmail(@PathVariable("email_usuario") String email_usuario){
+        return usuarioService.getUsuarioByEmail(email_usuario);
     }
 
     @PutMapping("/updateUsuario/{id_usuario}")
