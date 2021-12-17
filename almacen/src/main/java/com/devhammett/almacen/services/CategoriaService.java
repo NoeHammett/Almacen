@@ -54,7 +54,7 @@ public class CategoriaService {
         try{
             if (categoriaModelR.getNombre_categoria() != null && categoriaModelR.getNombre_categoria().length() > 0 && !categoriaModelR.getNombre_categoria().equals("") &&
             categoriaModelR.getDescripcion_categoria() != null && categoriaModelR.getDescripcion_categoria().length() > 0 && !categoriaModelR.getDescripcion_categoria().equals("") &&
-            categoriaModelR.getAnio_categoria() != null && categoriaModelR.getAnio_categoria() > 0 && !categoriaModelR.getAnio_categoria().equals("") ) {
+            categoriaModelR.getAnio_categoria() != null && categoriaModelR.getAnio_categoria() > 0) {
                 categoria.setNombre_categoria(categoriaModelR.getNombre_categoria());
                 categoria.setDescripcion_categoria(categoriaModelR.getDescripcion_categoria());
                 categoria.setAnio_categoria(categoriaModelR.getAnio_categoria());
